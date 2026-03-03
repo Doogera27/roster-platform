@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /projects
+Disallow: /settings
+Disallow: /admin
+Disallow: /messages
+Disallow: /rosters
+Disallow: /vault
+Disallow: /creatives
+Disallow: /onboarding
+
+Sitemap: https://www.rosterplatform.com/sitemap.xml
