@@ -1,0 +1,9 @@
+{
+  "name": "roster-netlify-functions",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@netlify/functions": "^2.8.0",
+    "@notionhq/client": "^2.2.15"
+  }
+}

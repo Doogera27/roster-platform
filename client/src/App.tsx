@@ -31,6 +31,7 @@ const ClientsFeaturesPage = lazy(() => import('./pages/ClientsFeaturesPage').the
 const CreativesLandingPage = lazy(() => import('./pages/CreativesLandingPage').then((m) => ({ default: m.CreativesLandingPage })));
 const CreativesPricingPage = lazy(() => import('./pages/CreativesPricingPage').then((m) => ({ default: m.CreativesPricingPage })));
 const CreativesFeaturesPage = lazy(() => import('./pages/CreativesFeaturesPage').then((m) => ({ default: m.CreativesFeaturesPage })));
+const CharterPage = lazy(() => import('./pages/CharterPage').then((m) => ({ default: m.CharterPage })));
 
 // Layout & Components
 import { AppLayout } from './components/AppLayout';
@@ -66,6 +67,7 @@ function PublicRoutes() {
           <Route path="/for-creatives/features" element={<CreativesFeaturesPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/charter/:inviteCode" element={<CharterPage />} />
       </Routes>
     </Suspense>
   );
@@ -111,7 +113,7 @@ const PUBLIC_PATHS = [
 ];
 
 function isPublicPath(pathname: string): boolean {
-  return PUBLIC_PATHS.includes(pathname);
+  return PUBLIC_PATHS.includes(pathname) || pathname.startsWith('/charter/');
 }
 
 /** Wrapper that checks if client user needs onboarding */
