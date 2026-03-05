@@ -136,11 +136,12 @@ const handler: Handler = async (event: HandlerEvent) => {
     };
   } catch (err: unknown) {
     console.error('Charter apply error:', err);
+    const message = err instanceof Error ? err.message : String(err);
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({
-        error: 'Something went wrong submitting your application. Please try again.',
+        error: `Debug: ${message}`,
       }),
     };
   }
