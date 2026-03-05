@@ -1,5 +1,5 @@
 [build]
-  command = "cd client && npx vite build"
+  command = "npm install --prefix netlify/functions && cd client && npx vite build"
   publish = "client/dist"
 
 [functions]
