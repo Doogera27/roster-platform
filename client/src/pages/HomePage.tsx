@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { SectionHeading } from '../components/marketing/SectionHeading';
-import { MetricCounter } from '../components/marketing/MetricCounter';
 import { FeatureCard } from '../components/marketing/FeatureCard';
-import { TestimonialCarousel } from '../components/marketing/TestimonialCarousel';
+import { CharterPreview } from '../components/marketing/CharterPreview';
 import { SocialProofBanner } from '../components/marketing/SocialProofBanner';
 import { SEOHead } from '../components/seo/SEOHead';
 import { buildOrganizationSchema, buildWebSiteSchema, buildHowToSchema } from '../utils/structuredData';
-import { testimonials } from '../data/testimonials';
 
 /* ─── Reveal wrapper ─── */
 function Reveal({ children, className = '' }: { children: React.ReactNode; className?: string }) {
@@ -112,18 +110,6 @@ export function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ─── Animated Stats ─── */}
-      <Reveal>
-        <section className="py-16 md:py-20 border-y border-[rgba(255,255,255,0.04)]" aria-label="Platform statistics">
-          <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <MetricCounter target={500} suffix="+" label="Vetted Creatives" />
-            <MetricCounter target={2000} suffix="+" label="Projects Delivered" />
-            <MetricCounter target={10} prefix="$" suffix="M+" label="Creative Work Managed" />
-            <MetricCounter target={98} suffix="%" label="On-Time Delivery" />
-          </div>
-        </section>
-      </Reveal>
 
       {/* ─── How It Works — For Clients ─── */}
       <Reveal>
@@ -264,13 +250,9 @@ export function HomePage() {
         </section>
       </Reveal>
 
-      {/* ─── Testimonial Carousel ─── */}
+      {/* ─── Charter Creative Program ─── */}
       <Reveal>
-        <section className="py-20 md:py-28 border-y border-[rgba(255,255,255,0.04)]" aria-label="Testimonials">
-          <div className="max-w-4xl mx-auto px-6">
-            <TestimonialCarousel testimonials={testimonials} />
-          </div>
-        </section>
+        <CharterPreview />
       </Reveal>
 
       {/* ─── Trust Signals ─── */}

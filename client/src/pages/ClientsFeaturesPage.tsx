@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { SectionHeading } from '../components/marketing/SectionHeading';
+import { FeatureMockup } from '../components/marketing/FeatureMockup';
 import { SocialProofBanner } from '../components/marketing/SocialProofBanner';
 import { SEOHead } from '../components/seo/SEOHead';
 import { buildSoftwareApplicationSchema, buildBreadcrumbSchema } from '../utils/structuredData';
@@ -22,11 +23,11 @@ interface FeatureSectionProps {
   title: string;
   description: string;
   bullets: string[];
-  icon: React.ReactNode;
+  featureId: string;
   reverse?: boolean;
 }
 
-function FeatureSection({ question, title, description, bullets, icon, reverse }: FeatureSectionProps) {
+function FeatureSection({ question, title, description, bullets, featureId, reverse }: FeatureSectionProps) {
   return (
     <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${reverse ? 'lg:flex-row-reverse' : ''}`}>
       <div className={reverse ? 'lg:order-2' : ''}>
@@ -45,11 +46,7 @@ function FeatureSection({ question, title, description, bullets, icon, reverse }
         </ul>
       </div>
       <div className={`${reverse ? 'lg:order-1' : ''}`}>
-        <div className="card p-8 flex items-center justify-center min-h-[280px]">
-          <div className="w-20 h-20 rounded-2xl bg-[var(--color-gold-dim)] border border-[var(--color-gold-border)] flex items-center justify-center text-[var(--color-gold)]">
-            {icon}
-          </div>
-        </div>
+        <FeatureMockup featureId={featureId} accent="gold" />
       </div>
     </div>
   );
@@ -67,12 +64,7 @@ const FEATURES: FeatureSectionProps[] = [
       'Phase-level recommendations and next-step suggestions',
       'Critical alerts sent when immediate action is needed',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z" />
-        <circle cx="9" cy="15" r="1" /><circle cx="15" cy="15" r="1" />
-      </svg>
-    ),
+    featureId: 'ai-pm',
   },
   {
     question: 'What is the Brand Vault?',
@@ -85,11 +77,7 @@ const FEATURES: FeatureSectionProps[] = [
       'Approval workflows tied to project phases',
       '5 GB to unlimited storage depending on plan',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="6" width="20" height="14" rx="2" /><path d="M2 10h20" /><path d="M12 6v4" />
-      </svg>
-    ),
+    featureId: 'brand-vault',
     reverse: true,
   },
   {
@@ -103,11 +91,7 @@ const FEATURES: FeatureSectionProps[] = [
       'Save favorites to reusable rosters',
       'AI matching to connect you with the best fit for your project',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
-      </svg>
-    ),
+    featureId: 'talent-discovery',
   },
   {
     question: 'How does Roster Management work?',
@@ -120,12 +104,7 @@ const FEATURES: FeatureSectionProps[] = [
       'Invite specific creatives to new projects',
       'Works for both one-off projects and ongoing retainers',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="9" cy="7" r="4" /><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M21 21v-2a4 4 0 0 0-3-3.87" />
-      </svg>
-    ),
+    featureId: 'roster-management',
     reverse: true,
   },
   {
@@ -139,11 +118,7 @@ const FEATURES: FeatureSectionProps[] = [
       'AI budget analysis identifies potential overruns early',
       'Full invoice management and payment processing',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    ),
+    featureId: 'budget-tracking',
   },
   {
     question: 'How does real-time messaging work?',
@@ -156,11 +131,7 @@ const FEATURES: FeatureSectionProps[] = [
       'Direct messages for 1:1 communication',
       'Full message history searchable by project',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
+    featureId: 'messaging',
     reverse: true,
   },
 ];

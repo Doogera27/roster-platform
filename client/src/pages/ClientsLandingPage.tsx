@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { SectionHeading } from '../components/marketing/SectionHeading';
 import { ComparisonTable } from '../components/marketing/ComparisonTable';
-import { ROISavingsCalculator } from '../components/marketing/ROISavingsCalculator';
+import { TeamCostComparison } from '../components/marketing/TeamCostComparison';
 import { SocialProofBanner } from '../components/marketing/SocialProofBanner';
 import { VideoPlaceholder } from '../components/marketing/VideoPlaceholder';
 import { SEOHead } from '../components/seo/SEOHead';
@@ -188,15 +188,15 @@ export function ClientsLandingPage() {
         </section>
       </Reveal>
 
-      {/* ROI Calculator */}
+      {/* Team Cost Comparison */}
       <Reveal>
-        <section className="py-20 md:py-28 border-y border-[rgba(255,255,255,0.04)]" aria-label="ROI calculator" id="calculator">
+        <section className="py-20 md:py-28 border-y border-[rgba(255,255,255,0.04)]" aria-label="Team cost comparison" id="calculator">
           <div className="max-w-4xl mx-auto px-6">
             <SectionHeading
-              title="See How Much You'll Save"
-              subtitle="Compare your current creative operations costs to Roster. Most teams save 30\u201350%."
+              title="Build Your Dream Team \u2014 See What It Really Costs"
+              subtitle="Select the creative roles you need, configure hours and headcount, and compare real market rates."
             />
-            <ROISavingsCalculator />
+            <TeamCostComparison />
           </div>
         </section>
       </Reveal>

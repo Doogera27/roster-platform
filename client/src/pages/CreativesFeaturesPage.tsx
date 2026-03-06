@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
+import { FeatureMockup } from '../components/marketing/FeatureMockup';
 import { SocialProofBanner } from '../components/marketing/SocialProofBanner';
 import { SEOHead } from '../components/seo/SEOHead';
 import { buildSoftwareApplicationSchema, buildBreadcrumbSchema } from '../utils/structuredData';
@@ -21,11 +22,11 @@ interface FeatureSectionProps {
   title: string;
   description: string;
   bullets: string[];
-  icon: React.ReactNode;
+  featureId: string;
   reverse?: boolean;
 }
 
-function FeatureSection({ question, title, description, bullets, icon, reverse }: FeatureSectionProps) {
+function FeatureSection({ question, title, description, bullets, featureId, reverse }: FeatureSectionProps) {
   return (
     <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${reverse ? 'lg:flex-row-reverse' : ''}`}>
       <div className={reverse ? 'lg:order-2' : ''}>
@@ -44,11 +45,7 @@ function FeatureSection({ question, title, description, bullets, icon, reverse }
         </ul>
       </div>
       <div className={`${reverse ? 'lg:order-1' : ''}`}>
-        <div className="card p-8 flex items-center justify-center min-h-[280px]">
-          <div className="w-20 h-20 rounded-2xl bg-[rgba(46,196,182,0.1)] border border-[var(--color-teal-border)] flex items-center justify-center text-[var(--color-teal)]">
-            {icon}
-          </div>
-        </div>
+        <FeatureMockup featureId={featureId} accent="teal" />
       </div>
     </div>
   );
@@ -66,11 +63,7 @@ const FEATURES: FeatureSectionProps[] = [
       'Clients see your portfolio when browsing and searching',
       'Ratings and reviews build your reputation over time',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" />
-      </svg>
-    ),
+    featureId: 'portfolio',
   },
   {
     question: 'How does AI matching work?',
@@ -83,11 +76,7 @@ const FEATURES: FeatureSectionProps[] = [
       'Matching improves as you complete more projects',
       'Priority placement in search results with active membership',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
-      </svg>
-    ),
+    featureId: 'ai-matching',
     reverse: true,
   },
   {
@@ -101,12 +90,7 @@ const FEATURES: FeatureSectionProps[] = [
       'All files and versions tracked in one place',
       'Clients approve work at each phase before moving forward',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z" />
-        <circle cx="9" cy="15" r="1" /><circle cx="15" cy="15" r="1" />
-      </svg>
-    ),
+    featureId: 'phase-workflow',
   },
   {
     question: 'How do I communicate with clients?',
@@ -119,11 +103,7 @@ const FEATURES: FeatureSectionProps[] = [
       'Direct messages for 1:1 communication',
       'Full message history searchable by project',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
+    featureId: 'messaging',
     reverse: true,
   },
   {
@@ -137,11 +117,7 @@ const FEATURES: FeatureSectionProps[] = [
       'Full financial dashboard with earnings history',
       'You keep 100% of your project fees',
     ],
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    ),
+    featureId: 'invoicing',
   },
 ];
 

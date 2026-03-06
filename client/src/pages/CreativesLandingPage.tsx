@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll';
 import { SectionHeading } from '../components/marketing/SectionHeading';
-import { MetricCounter } from '../components/marketing/MetricCounter';
 import { EarningsCalculator } from '../components/marketing/EarningsCalculator';
 import { SocialProofBanner } from '../components/marketing/SocialProofBanner';
 import { SEOHead } from '../components/seo/SEOHead';
@@ -87,7 +86,7 @@ export function CreativesLandingPage() {
     <div className="overflow-hidden">
       <SEOHead
         title="For Creatives \u2014 Get Discovered by Top Brands | Roster"
-        description="Join 500+ vetted creatives on Roster. Build your portfolio, get matched with brand projects, manage work with AI, and get paid on time."
+        description="Join vetted creatives on Roster. Build your portfolio, get matched with brand projects, manage work with AI, and get paid on time."
         canonical="https://www.rosterplatform.com/for-creatives"
         structuredData={[
           buildProductSchema(
@@ -145,18 +144,6 @@ export function CreativesLandingPage() {
           </div>
         </div>
       </section>
-
-      {/* Stats */}
-      <Reveal>
-        <section className="py-16 md:py-20 border-y border-[rgba(255,255,255,0.04)]" aria-label="Platform statistics">
-          <div className="max-w-4xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <MetricCounter target={500} suffix="+" label="Vetted Creatives" />
-            <MetricCounter target={2000} suffix="+" label="Projects Delivered" />
-            <MetricCounter target={98} suffix="%" label="On-Time Delivery" />
-            <MetricCounter target={100} suffix="%" label="You Keep Your Fees" />
-          </div>
-        </section>
-      </Reveal>
 
       {/* How It Works */}
       <Reveal>
@@ -231,7 +218,7 @@ export function CreativesLandingPage() {
               Your Talent Deserves a Better Platform
             </h2>
             <p className="text-[var(--color-text-muted)] text-lg mb-8 max-w-xl mx-auto">
-              Join 500+ vetted creatives who are getting discovered by top brands and getting paid on time.
+              Join vetted creatives who are getting discovered by top brands and getting paid on time.
             </p>
             <div className="flex items-center justify-center gap-4 flex-wrap">
               <Link
